@@ -359,6 +359,10 @@ Legionary
 	outfit = /datum/outfit/job/CaesarsLegion/Legionnaire/f13legionary
 
 /datum/outfit/job/CaesarsLegion/Legionnaire/f13legionary
+
+
+
+
 	name = "Recruit Legionnaire"
 	jobtype = /datum/job/CaesarsLegion/Legionnaire/f13legionary
 	shoes = 		/obj/item/clothing/shoes/legionleather
@@ -366,16 +370,34 @@ Legionary
 	head = 			/obj/item/clothing/head/helmet/f13/legion/legrecruit
 	mask =			/obj/item/clothing/mask/bandana/legrecruit
 	glasses = 		/obj/item/clothing/glasses/sunglasses/big
-	backpack_contents = list(
-		/obj/item/restraints/legcuffs/bola=1, \
-		/obj/item/throwing_star/spear, \
-		/obj/item/throwing_star/spear, \
-		/obj/item/throwing_star/spear, \
-		/obj/item/restraints/handcuffs=1, \
-		/obj/item/claymore/machete=1, \
-		/obj/item/reagent_containers/pill/patch/healingpowder=2, \
-		/obj/item/flashlight/flare/torch=1, \
-		/obj/item/stack/f13Cash/random/denarius/legionpay_basic)
+
+
+	/datum/outfit/job/CaesarsLegion/f13legionary/pre_equip(mob/living/carbon/human/H)
+	..()
+
+		var/legion_kit = "None"
+		legion_kit = pick("Option1", "Option2", "Option3")
+
+
+
+
+		backpack_contents = list(
+			/obj/item/restraints/legcuffs/bola=1, \
+			/obj/item/throwing_star/spear, \
+			/obj/item/throwing_star/spear, \
+			/obj/item/throwing_star/spear, \
+			/obj/item/restraints/handcuffs=1, \
+			/obj/item/claymore/machete=1, \
+			/obj/item/reagent_containers/pill/patch/healingpowder=2, \
+			/obj/item/flashlight/flare/torch=1, \
+			/obj/item/stack/f13Cash/random/denarius/legionpay_basic)
+
+			if (legion_kit == "Option1")
+				/obj/item/binocs
+			else if (legion_kit == "Option2")
+				/obj/item/flashlight/flare
+			else
+				/obj/item/storage/bag/ore
 
 
 /datum/job/CaesarsLegion/Legionnaire/f13explorer
@@ -425,6 +447,7 @@ Legionary
 	outfit = /datum/outfit/job/CaesarsLegion/Legionnaire/f13scout
 
 /datum/outfit/job/CaesarsLegion/Legionnaire/f13scout
+
 	name = "Legion Scout"
 	jobtype = /datum/job/CaesarsLegion/Legionnaire/f13scout
 	shoes = 		/obj/item/clothing/shoes/legionleather
@@ -439,6 +462,9 @@ Legionary
 		/obj/item/ammo_box/a762=2, \
 		/obj/item/flashlight/flare/torch=1, \
 		/obj/item/stack/f13Cash/random/denarius/legionpay_basic)
+
+
+
 
 /datum/job/CaesarsLegion/f13campfollower
 	title = "Camp Follower"
